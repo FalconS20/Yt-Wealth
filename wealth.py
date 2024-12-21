@@ -63,13 +63,10 @@ def get_videos_from_rss(rss_url):
 
         today = datetime.now()
 
-        # Calculate previous Monday and the end of the last Sunday
+        # Calculate the start of the Monday two weeks ago and the end of the last Sunday
         # Monday is weekday 0, Sunday is weekday 6
-        current_weekday = today.weekday()
-
-        # If today is Monday (weekday 0), go to last week's Monday
-        last_monday = today - timedelta(days=current_weekday + 7)  # Start of previous Monday
-        last_sunday = last_monday + timedelta(days=6, hours=23, minutes=59, seconds=59)  # End of previous Sunday
+        last_monday = today - timedelta(days=today.weekday() + 14)  # Start of Monday two weeks ago
+        last_sunday = last_monday + timedelta(days=13, hours=23, minutes=59, seconds=59)  # End of Sunday of the second week
 
         videos = []
 
