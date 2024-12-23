@@ -2,7 +2,7 @@ name: Run Wealth Script and Commit HTML
 on:
   workflow_dispatch:  # Allows manual triggering of the workflow
   schedule:
-    - cron: '30 15 * * 1'  # Runs every Monday at 9 PM IST (UTC+5:30)
+    - cron: '30 15 */14 * 1'  # Runs every 14 days on Monday at 9 PM IST (15:30 UTC)
 
 jobs:
   run-and-commit:
